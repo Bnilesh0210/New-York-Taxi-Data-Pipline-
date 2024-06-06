@@ -29,3 +29,42 @@ Documentation:
 └── README.md
 
 >>>>>>> e1d24b12bd2a1bf5dc93f72f26cd16a8d9eef7b4
+
+
+Documentation
+# NY Taxi Data Pipeline
+
+## Project Overview
+This project processes New York Taxi Trip data for the year 2019, deriving analytical insights, and loads the processed data into ClickHouse for further analysis.
+
+## Environment Setup
+### Requirements
+- Docker
+- Apache Spark
+- Python Libraries: requests, retrying, pyspark, clickhouse_driver, airflow
+
+### Setup Instructions
+1. Install Docker and Docker Compose.
+2. Setup Apache Spark:
+    - Download and install Apache Spark from the official website.
+3. Setup ClickHouse:
+    - Run `docker run -d --name some-clickhouse-server --ulimit nofile=262144:262144 yandex/clickhouse-server`.
+4. Setup Apache Airflow:
+    - Follow Airflow installation instructions from the official website.
+
+## Running the Project
+### Data Extraction
+- Run the data download script: `python download_data.py`
+
+### Data Processing
+- Run the Spark processing script: `python process_data.py`
+
+### Data Loading
+- Run the data loading script: `python load_data.py`
+
+## Pipeline Orchestration
+### Setup Airflow
+- Follow the Airflow setup instructions.
+- Place the DAG file in the Airflow DAGs directory.
+- Trigger the DAG from the Airflow UI.
+
